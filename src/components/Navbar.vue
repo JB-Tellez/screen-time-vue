@@ -8,7 +8,7 @@
       <img src="../assets/images/xs-screentime-logo.png" alt="">
     </b-navbar-brand>
 
-    <b-nav class="ml-auto">
+    <b-nav v-if="!loggedIn" class="ml-auto">
       <b-button variant="success">
         <router-link to="/login">Login</router-link>
       </b-button>
@@ -20,9 +20,16 @@
 
 <script>
 export default {
+
   methods: {
+    
     onLogin: function(event) {
-      alert('login')
+      this.$router.push('/login');
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn
     }
   }
 }

@@ -3,10 +3,10 @@
     
       <div class="wrapper">
         <div class="container">
-          <form class="form" >
+          <form class="form" v-on:submit.prevent>
             <input type="text" placeholder="Name"  name="name">
             <input type="password" placeholder="Password"  name="password">
-            <button type="submit" id="login-button">Login</button>
+            <button @click="login" type="submit" id="login-button" >Login</button>
             <p class="signup"> If your family is not registered. <a class="signup-link">Sign Up Here</a></p>
           </form>
         </div>
@@ -18,7 +18,12 @@
 
 <script>
 export default {
-  
+  methods: {
+    login: function(event) {
+      this.$store.commit('login')
+      // this.$router.push('/family/321')
+    }
+  }
 }
 </script>
 <style scoped>
