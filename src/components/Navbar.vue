@@ -8,7 +8,7 @@
       <img src="../assets/images/xs-screentime-logo.png" alt="">
     </b-navbar-brand>
 
-    <b-nav v-if="!loggedIn" class="ml-auto">
+    <b-nav v-if="showLoginButton" class="ml-auto">
       <b-button variant="success">
         <router-link to="/login">Login</router-link>
       </b-button>
@@ -28,8 +28,9 @@ export default {
     }
   },
   computed: {
-    loggedIn() {
-      return this.$store.state.loggedIn
+    showLoginButton() {
+      console.log(this.$store.state.route.path);
+      return !this.$store.state.loggedIn && this.$store.state.route.path !== '/login';
     }
   }
 }

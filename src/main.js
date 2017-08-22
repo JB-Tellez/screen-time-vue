@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './App'
 import router from './router'
+import { sync } from 'vuex-router-sync'
 
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
@@ -29,6 +30,8 @@ const store = new Vuex.Store({
     }
   }
 })
+
+sync(store, router)
 
 console.log('store', store);
 
